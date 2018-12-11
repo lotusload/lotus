@@ -1,0 +1,18 @@
+---
+# Source: lotus/templates/grafana-datasources-configmap.yaml
+
+kind: ConfigMap
+metadata:
+  name: lotus-grafana-datasources
+  labels:
+    lotus-grafana-datasource: "true"
+data:
+  datasources.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: thanos
+        type: prometheus
+        url: http://lotus-thanos-query:9090
+        access: proxy
+        basicAuth: false
+        isDefault: true

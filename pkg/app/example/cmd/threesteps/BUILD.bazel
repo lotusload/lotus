@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["scenario.go"],
+    importpath = "github.com/nghialv/lotus/pkg/app/example/cmd/threesteps",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/example/helloworld:go_default_library",
+        "//pkg/cli:go_default_library",
+        "//pkg/metrics:go_default_library",
+        "//pkg/metrics/grpcmetrics:go_default_library",
+        "//pkg/metrics/httpmetrics:go_default_library",
+        "@com_github_spf13_cobra//:go_default_library",
+        "@org_golang_google_grpc//:go_default_library",
+        "@org_golang_x_net//context/ctxhttp:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)

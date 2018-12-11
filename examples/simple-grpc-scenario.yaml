@@ -1,0 +1,18 @@
+apiVersion: lotus.nghialv.com/v1beta1
+kind: Lotus
+metadata:
+  name: simple-grpc-scenario-123456789
+spec:
+  worker:
+    runTime: 3m
+    replicas: 2
+    metricsPort: 8081
+    containers:
+      - name: worker
+        image: nghialv2607/lotus-example:v0.1.0
+        args:
+          - simple-grpc-scenario
+          - --helloworld-grpc-address=helloworld:8080
+        ports:
+          - name: metrics
+            containerPort: 8081

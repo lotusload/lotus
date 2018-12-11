@@ -1,0 +1,18 @@
+lotus:
+  rbac:
+    enabled: false
+  # configs:
+  #   checks: FIX-ME---NOT-REQUIRED---SET-GLOBAL-CHECKS
+  #   receivers: FIX-ME---NOT-REQUIRED---SET-SUMMARY-RECEIVERS
+  #   timeSeriesStorage:
+  #     gcs:
+  #       bucket: FIX-ME---SET-BUCKET-TO-STORE-TIMESERIES
+  #       credentials:
+  #         secret: FIX-ME---SET-SECRET-NAME-THAT-CONTAINS-GCS-SERVICE-ACCOUNT
+  #         file: FIX-ME---SET-SERVICE-ACCOUNT-FILENAME
+
+grafana:
+  rbac:
+    create: false
+  serviceAccount:
+    create: false

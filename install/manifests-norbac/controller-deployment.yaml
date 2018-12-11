@@ -1,0 +1,35 @@
+---
+# Source: lotus/templates/controller-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lotus-controller
+  labels:
+    app: lotus-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lotus-controller
+  template:
+    metadata:
+      labels:
+        app: lotus-controller
+    spec:
+      containers:
+      - name: lotus-controller
+        image: nghialv2607/lotus:v0.1.0
+        args:
+        - controller
+        - --log-level=debug
+        - --config-file=/etc/lotus/config.yaml
+        - --namespace=default
+        - --release=lotus
+        volumeMounts:
+        - name: config
+          mountPath: /etc/lotus
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: lotus-controller-config

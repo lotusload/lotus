@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["interface.go"],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/client/informers/externalversions/lotus",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/client/informers/externalversions/internalinterfaces:go_default_library",
+        "//pkg/app/lotus/client/informers/externalversions/lotus/v1beta1:go_default_library",
+    ],
+)

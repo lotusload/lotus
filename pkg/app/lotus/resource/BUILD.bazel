@@ -1,0 +1,37 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "factory.go",
+        "job.go",
+        "prometheus.go",
+        "secret.go",
+        "static_factory.go",
+        "templates.go",
+        "thanos.go",
+        "worker.go",
+    ],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/resource",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/apis/lotus/v1beta1:go_default_library",
+        "//pkg/app/lotus/config:go_default_library",
+        "//pkg/app/lotus/model:go_default_library",
+        "//pkg/version:go_default_library",
+        "@com_github_ghodss_yaml//:go_default_library",
+        "@io_k8s_api//apps/v1:go_default_library",
+        "@io_k8s_api//batch/v1:go_default_library",
+        "@io_k8s_api//core/v1:go_default_library",
+        "@io_k8s_apimachinery//pkg/apis/meta/v1:go_default_library",
+        "@io_k8s_apimachinery//pkg/util/intstr:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    size = "small",
+    srcs = ["templates_test.go"],
+    embed = [":go_default_library"],
+    deps = ["@com_github_stretchr_testify//require:go_default_library"],
+)

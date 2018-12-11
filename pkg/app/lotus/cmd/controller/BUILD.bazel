@@ -1,0 +1,20 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["controller.go"],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/cmd/controller",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/client/clientset/versioned:go_default_library",
+        "//pkg/app/lotus/client/informers/externalversions:go_default_library",
+        "//pkg/app/lotus/controller:go_default_library",
+        "//pkg/cli:go_default_library",
+        "@com_github_spf13_cobra//:go_default_library",
+        "@io_k8s_client_go//informers:go_default_library",
+        "@io_k8s_client_go//kubernetes:go_default_library",
+        "@io_k8s_client_go//plugin/pkg/client/auth/gcp:go_default_library",
+        "@io_k8s_client_go//tools/clientcmd:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)

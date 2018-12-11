@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "builder.go",
+        "prometheus.go",
+        "query.go",
+    ],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/datasource/prometheus",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/config:go_default_library",
+        "//pkg/app/lotus/datasource:go_default_library",
+        "//pkg/app/lotus/model:go_default_library",
+        "//pkg/metrics/grpcmetrics:go_default_library",
+        "//pkg/metrics/httpmetrics:go_default_library",
+        "@com_github_prometheus_client_golang//api:go_default_library",
+        "@com_github_prometheus_client_golang//api/prometheus/v1:go_default_library",
+        "@com_github_prometheus_common//model:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    size = "small",
+    srcs = ["prometheus_test.go"],
+    embed = [":go_default_library"],
+)

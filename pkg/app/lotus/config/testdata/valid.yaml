@@ -1,0 +1,26 @@
+timeSeriesStorage:
+  gcs:
+    bucket: gcs-bucket
+    credentials:
+      secret: gcs-credentials
+      file: gcs-credentials.json
+dataSources:
+  - name: RemotePrometheus
+    prometheus:
+      address: http://prometheus.com
+checks:
+  - name: NoWorker
+    expr: absent(up)
+    for: 30s
+receivers:
+  - name: gcs
+    gcs:
+      bucket: load-testing-result
+      credentials:
+        secret: secret-name
+        file: filename
+  - name: slack
+    slack:
+      hookUrl: https://slack.com/hook
+  - name: logger
+    logger:

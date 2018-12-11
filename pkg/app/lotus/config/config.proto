@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package pkg.lotus.config;
+option go_package = "config";
+
+import "validate/validate.proto";
+
+message Config {
+  repeated DataSource data_sources = 1;
+  repeated Check checks = 2;
+  repeated Receiver receivers = 3;
+  TimeSeriesStorage time_series_storage = 4;
+  string grafana_base_url = 5;
+}
+
+message TimeSeriesStorage {
+  enum Type {
+    GCS = 0;
+    AWS_S3 = 1;
+  }
+  oneof type {
+    option (validate.required) = true;
+    GCSTimeSeriesStorageConfigs gcs = 10;
+    S3TimeSeriesStorageConfigs s3 = 11;
+  }
+}
+
+message GCSTimeSeriesStorageConfigs {
+  string bucket = 1 [(validate.rules).string.min_len = 1];
+  SecretFileSelector credentials = 2;
+}
+
+message S3TimeSeriesStorageConfigs {
+  string bucket = 1 [(validate.rules).string.min_len = 1];
+  string endpoint = 2 [(validate.rules).string.min_len = 1];
+  SecretFileSelector access_key = 3 [(validate.rules).message.required = true];
+  SecretFileSelector secret_key = 4 [(validate.rules).message.required = true];
+  bool insecure = 5;
+  bool signature_version2 = 6;
+  bool encrypt_sse = 7;
+}
+
+message Check {
+  string name = 1 [(validate.rules).string.min_len = 1];
+  string expr = 2 [(validate.rules).string.min_len = 1];
+  string for = 3 [(validate.rules).string.min_len = 1];
+  string data_source = 4;
+}
+
+message DataSource {
+  enum Type {
+    PROMETHEUS = 0;
+    STACKDRIVER = 1;
+    DATADOG = 2;
+    UNKNOWN = 15;
+  }
+  string name = 1 [(validate.rules).string.min_len = 1];
+  oneof type {
+    option (validate.required) = true;
+    PrometheusConfigs prometheus = 10;
+  }
+}
+
+message PrometheusConfigs {
+  string address = 1 [(validate.rules).string.uri = true];
+}
+
+message Receiver {
+  enum Type {
+    LOGGER = 0;
+    GCS = 1;
+    SLACK = 2;
+    UNKNOWN = 15;
+  }
+  string name = 1 [(validate.rules).string.min_len = 1];
+  oneof type {
+    option (validate.required) = true;
+    LoggerReceiverConfigs logger = 10;
+    GCSReceiverConfigs gcs = 11;
+    SlackReceiverConfigs slack = 12;
+  }
+}
+
+message LoggerReceiverConfigs {
+}
+
+message GCSReceiverConfigs {
+  string bucket = 1 [(validate.rules).string.min_len = 1];
+  SecretFileSelector credentials = 2;
+}
+
+message SlackReceiverConfigs {
+  string hook_url = 1 [(validate.rules).string.uri = true];
+}
+
+message SecretFileSelector {
+  string secret = 1 [(validate.rules).string.min_len = 1];
+  string file = 2 [(validate.rules).string.min_len =1];
+}

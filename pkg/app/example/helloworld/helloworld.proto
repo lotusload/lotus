@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package pkg.example.helloworld;
+option go_package = "helloworld";
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloResponse) {}
+  rpc GetProfile (ProfileRequest) returns (ProfileResponse) {}
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string message = 1;
+}
+
+message ProfileRequest {
+  string name = 1;
+}
+
+message ProfileResponse{
+  string name = 1;
+  string homepage = 2;
+}

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "lotus.fullname" . }}-controller
+  labels:
+    app: {{ template "lotus.fullname" . }}-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ template "lotus.fullname" . }}-controller
+  template:
+    metadata:
+      labels:
+        app: {{ template "lotus.fullname" . }}-controller
+    spec:
+{{- if .Values.lotus.rbac.enabled }}
+      serviceAccountName: {{ template "lotus.fullname" . }}-controller
+{{- end }}
+      containers:
+      - name: lotus-controller
+        image: {{ .Values.lotus.image.repository }}:{{ .Values.lotus.image.tag }}
+        args:
+        - controller
+        - --log-level=debug
+        - --config-file=/etc/lotus/config.yaml
+        - --namespace={{ .Release.Namespace }}
+        - --release={{ .Release.Name }}
+{{- if .Values.lotus.rbac.enabled }}
+        - --prometheus-service-account={{ template "lotus.fullname" . }}-prometheus
+{{- end }}
+        volumeMounts:
+        - name: config
+          mountPath: /etc/lotus
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: {{ template "lotus.fullname" . }}-controller-config

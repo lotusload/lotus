@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["reporter.go"],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/reporter",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/config:go_default_library",
+        "//pkg/app/lotus/model:go_default_library",
+        "@org_golang_x_sync//errgroup:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    size = "small",
+    srcs = ["reporter_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//pkg/app/lotus/model:go_default_library",
+        "@com_github_stretchr_testify//assert:go_default_library",
+    ],
+)

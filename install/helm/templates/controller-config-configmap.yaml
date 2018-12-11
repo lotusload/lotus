@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "lotus.fullname" . }}-controller-config
+data:
+  config.yaml: |
+{{ toYaml .Values.lotus.configs | indent 4 }}

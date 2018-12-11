@@ -1,0 +1,17 @@
+{{- if .Values.grafana.enabled }}
+kind: ConfigMap
+metadata:
+  name: {{ template "lotus.fullname" . }}-grafana-datasources
+  labels:
+    lotus-grafana-datasource: "true"
+data:
+  datasources.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: thanos
+        type: prometheus
+        url: http://{{ template "lotus.fullname" . }}-thanos-query:9090
+        access: proxy
+        basicAuth: false
+        isDefault: true
+{{- end }}

@@ -1,0 +1,11 @@
+load("@bazel_gazelle//:def.bzl", "gazelle")
+
+# gazelle:exclude vendor
+# gazelle:exclude install
+# gazelle:exclude hack
+# gazelle:build_file_name BUILD.bazel
+# gazelle:prefix github.com/nghialv/lotus
+
+gazelle(
+    name = "gazelle",
+)

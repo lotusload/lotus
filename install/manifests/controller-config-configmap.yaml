@@ -1,0 +1,21 @@
+---
+# Source: lotus/templates/controller-config-configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lotus-controller-config
+data:
+  config.yaml: |
+    checks:
+    - expr: absent(up)
+      for: 30s
+      name: NoWorker
+    - expr: up == 0
+      for: 30s
+      name: HasWorkerDown
+    grafanaBaseUrl: ""
+    receivers:
+    - logger: null
+      name: logger
+    timeSeriesStorage: null
+    

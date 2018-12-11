@@ -1,0 +1,756 @@
+{
+   "annotations": {
+      "list": [ ]
+   },
+   "editable": false,
+   "gnetId": null,
+   "graphTooltip": 0,
+   "hideControls": false,
+   "id": null,
+   "links": [ ],
+   "panels": [
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "sum (up{job=~\"$testId-worker\"})",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": " ",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Number of workers",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 0
+         },
+         "id": 3,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "sum by (virtual_user_status) (lotus_virtual_user_count{job=~\"$testId-worker\"})",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "virtual_user_status",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Number of virtual users",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 6
+         },
+         "id": 4,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_completed_rpcs_per_second:method{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_method }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "RPCs / second",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 6
+         },
+         "id": 5,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_roundtrip_latency:method{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_method }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Latency",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "ms",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 14
+         },
+         "id": 6,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_completed_rpcs_per_second:status{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_status }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "RPCs / seconds grouping by status",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "short",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 14
+         },
+         "id": 7,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_completed_rpcs_failure_percentage:method{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_method }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Percentage of failed RPCs",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "percent",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "percent",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 22
+         },
+         "id": 8,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_sent_bytes_per_rpc:method{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_method }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Sent Bytes",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "bytes",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "bytes",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      },
+      {
+         "aliasColors": { },
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "datasource": "thanos",
+         "fill": 2,
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 22
+         },
+         "id": 9,
+         "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "sort": "current",
+            "sortDesc": true,
+            "total": false,
+            "values": true
+         },
+         "lines": true,
+         "linewidth": 2,
+         "links": [ ],
+         "nullPointMode": "null",
+         "percentage": false,
+         "pointradius": 5,
+         "points": false,
+         "renderer": "flot",
+         "repeat": null,
+         "seriesOverrides": [ ],
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "expr": "lotus_grpc_client_received_bytes_per_rpc:method{job=~\"$testId-worker\"}",
+               "format": "time_series",
+               "intervalFactor": 2,
+               "legendFormat": "{{ grpc_client_method }}",
+               "refId": "A"
+            }
+         ],
+         "thresholds": [ ],
+         "timeFrom": null,
+         "timeShift": null,
+         "title": "Received Bytes",
+         "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+         },
+         "type": "graph",
+         "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": [ ]
+         },
+         "yaxes": [
+            {
+               "format": "bytes",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            },
+            {
+               "format": "bytes",
+               "label": null,
+               "logBase": 1,
+               "max": null,
+               "min": null,
+               "show": true
+            }
+         ]
+      }
+   ],
+   "refresh": "",
+   "rows": [ ],
+   "schemaVersion": 16,
+   "style": "dark",
+   "tags": [
+      "grpc"
+   ],
+   "templating": {
+      "list": [
+         {
+            "allValue": null,
+            "current": { },
+            "datasource": "thanos",
+            "hide": 0,
+            "includeAll": false,
+            "label": "TestID",
+            "multi": false,
+            "name": "testId",
+            "options": [ ],
+            "query": "query_result(count by(job) (count_over_time(up[$__range])))",
+            "refresh": 2,
+            "regex": "/\"(.*)-worker\"/",
+            "sort": 0,
+            "tagValuesQuery": "",
+            "tags": [ ],
+            "tagsQuery": "",
+            "type": "query",
+            "useTags": false
+         }
+      ]
+   },
+   "time": {
+      "from": "now-1h",
+      "to": "now"
+   },
+   "timepicker": {
+      "refresh_intervals": [
+         "5s",
+         "10s",
+         "30s",
+         "1m",
+         "5m",
+         "15m",
+         "30m",
+         "1h",
+         "2h",
+         "1d"
+      ],
+      "time_options": [
+         "5m",
+         "15m",
+         "1h",
+         "6h",
+         "12h",
+         "24h",
+         "2d",
+         "7d",
+         "30d"
+      ]
+   },
+   "timezone": "browser",
+   "title": "GRPC",
+   "version": 0
+}

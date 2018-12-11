@@ -1,0 +1,37 @@
+{{- if .Values.lotus.rbac.enabled }}
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: {{ template "lotus.fullname" . }}-prometheus
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ template "lotus.fullname" . }}-prometheus
+  namespace: {{ .Release.Namespace }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - endpoints
+      - services
+      - pods
+    verbs:
+      - get
+      - list
+      - watch
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ template "lotus.fullname" . }}-prometheus
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ template "lotus.fullname" . }}-prometheus
+subjects:
+- kind: ServiceAccount
+  name: {{ template "lotus.fullname" . }}-prometheus
+  namespace: {{ .Release.Namespace }}
+{{- end }}

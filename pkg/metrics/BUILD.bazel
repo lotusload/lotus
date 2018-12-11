@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "logger.go",
+        "metrics.go",
+    ],
+    importpath = "github.com/nghialv/lotus/pkg/metrics",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/metrics/grpcmetrics:go_default_library",
+        "//pkg/metrics/httpmetrics:go_default_library",
+        "//pkg/virtualuser:go_default_library",
+        "@io_opencensus_go//exporter/prometheus:go_default_library",
+        "@io_opencensus_go//stats/view:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    size = "small",
+    srcs = ["metrics_test.go"],
+    embed = [":go_default_library"],
+)

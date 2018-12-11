@@ -1,0 +1,16 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["gcs.go"],
+    importpath = "github.com/nghialv/lotus/pkg/app/lotus/reporter/gcs",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/app/lotus/config:go_default_library",
+        "//pkg/app/lotus/model:go_default_library",
+        "//pkg/app/lotus/reporter:go_default_library",
+        "@com_google_cloud_go//storage:go_default_library",
+        "@org_golang_google_api//option:go_default_library",
+        "@org_uber_go_zap//:go_default_library",
+    ],
+)

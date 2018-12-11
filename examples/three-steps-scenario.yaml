@@ -1,0 +1,45 @@
+apiVersion: lotus.nghialv.com/v1beta1
+kind: Lotus
+metadata:
+  name: three-steps-scenario-1
+spec:
+  checkIntervalSeconds: 10
+  worker:
+    runTime: 3m
+    replicas: 2
+    metricsPort: 8081
+    containers:
+      - name: worker
+        image: nghialv2607/lotus-example:v0.1.0
+        args:
+          - three-steps-scenario
+          - --step=worker
+          - --helloworld-grpc-address=helloworld:8080
+          - --helloworld-http-address=http://helloworld:9090
+        ports:
+          - name: metrics
+            containerPort: 8081
+  preparer:
+    containers:
+      - name: preparer
+        image: nghialv2607/lotus-example:v0.1.0
+        args:
+          - three-steps-scenario
+          - --step=preparer
+          - --duration=10s
+          - --helloworld-grpc-address=helloworld:8080
+          - --helloworld-http-address=http://helloworld:9090
+  cleaner:
+    containers:
+      - name: cleaner
+        image: nghialv2607/lotus-example:v0.1.0
+        args:
+          - three-steps-scenario
+          - --step=cleaner
+          - --duration=10s
+          - --helloworld-grpc-address=helloworld:8080
+          - --helloworld-http-address=http://helloworld:9090
+  checks:
+    - name: GRPCHighLatency
+      expr: lotus_grpc_client_roundtrip_latency:method > 2500
+      for: 30s

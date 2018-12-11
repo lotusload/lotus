@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/nghialv/lotus/cmd/example",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//pkg/app/example/cmd/helloworld:go_default_library",
+        "//pkg/app/example/cmd/simplegrpc:go_default_library",
+        "//pkg/app/example/cmd/simplehttp:go_default_library",
+        "//pkg/app/example/cmd/threesteps:go_default_library",
+        "//pkg/app/example/cmd/virtualuser:go_default_library",
+        "//pkg/cli:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "example",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)
+
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+
+go_image(
+    name = "image",
+    binary = ":example",
+    visibility = ["//visibility:public"],
+)

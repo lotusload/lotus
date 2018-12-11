@@ -1,0 +1,16 @@
+---
+# Source: lotus/charts/grafana/templates/clusterrole.yaml
+
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    app: grafana
+    chart: grafana-1.19.0
+    release: lotus
+    heritage: Tiller
+  name: lotus-grafana-clusterrole
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["configmaps"]
+  verbs: ["get", "watch", "list"]

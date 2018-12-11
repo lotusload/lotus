@@ -1,0 +1,5 @@
+dependencies:
+- name: grafana
+  version: "1.19.0"
+  repository: "@stable"
+  condition: grafana.enabled

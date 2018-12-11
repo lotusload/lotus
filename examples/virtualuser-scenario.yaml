@@ -1,0 +1,25 @@
+apiVersion: lotus.nghialv.com/v1beta1
+kind: Lotus
+metadata:
+  name: virtual-user-scenario-12345
+spec:
+  checkIntervalSeconds: 10
+  worker:
+    runTime: 3m
+    replicas: 2
+    metricsPort: 8081
+    containers:
+      - name: worker
+        image: nghialv2607/lotus-example:v0.1.0
+        args:
+          - virtual-user-scenario
+          - --num-virtual-users=100
+          - --hatch-rate=10
+          - --helloworld-grpc-address=helloworld:8080
+        ports:
+          - name: metrics
+            containerPort: 8081
+  checks:
+    - name: VirtualUserHasFailed
+      expr: lotus_virtual_user_count{virtual_user_status=~"failed"} > 0
+      for: 1s

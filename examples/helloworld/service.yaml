@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: helloworld
+spec:
+  selector:
+    app: helloworld
+  ports:
+  - name: grpc
+    protocol: TCP
+    port: 8080
+  - name: http
+    protocol: TCP
+    port: 9090

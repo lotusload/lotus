@@ -5,7 +5,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	lotus "github.com/nghialv/lotus/pkg/app/lotus/apis/lotus"
+	lotus "github.com/lotusload/lotus/pkg/app/lotus/apis/lotus"
 )
 
 // SchemeGroupVersion is group version used to register these objects

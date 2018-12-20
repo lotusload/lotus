@@ -6,7 +6,7 @@ go_library(
         "scenario.go",
         "user.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/example/cmd/virtualuser",
+    importpath = "github.com/lotusload/lotus/pkg/app/example/cmd/virtualuser",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/example/helloworld:go_default_library",

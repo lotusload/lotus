@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["monitor.go"],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/cmd/monitor",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/cmd/monitor",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/config:go_default_library",

@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["register.go"],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/apis/lotus",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/apis/lotus",
     visibility = ["//visibility:public"],
 )

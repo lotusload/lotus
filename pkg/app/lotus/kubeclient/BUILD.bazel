@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 go_library(
     name = "go_default_library",
     srcs = ["kubeclient.go"],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/kubeclient",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/kubeclient",
     visibility = ["//visibility:public"],
     deps = [
         "@io_k8s_api//apps/v1:go_default_library",

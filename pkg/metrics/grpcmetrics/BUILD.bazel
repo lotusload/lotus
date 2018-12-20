@@ -7,7 +7,7 @@ go_library(
         "grpc.go",
         "grpc_stats.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/metrics/grpcmetrics",
+    importpath = "github.com/lotusload/lotus/pkg/metrics/grpcmetrics",
     visibility = ["//visibility:public"],
     deps = [
         "@io_opencensus_go//stats:go_default_library",

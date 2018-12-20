@@ -6,7 +6,7 @@ go_library(
         "factory.go",
         "generic.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/client/informers/externalversions",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/client/informers/externalversions",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/apis/lotus/v1beta1:go_default_library",

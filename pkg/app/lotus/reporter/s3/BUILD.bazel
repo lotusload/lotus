@@ -3,6 +3,6 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["s3.go"],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/reporter/s3",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/reporter/s3",
     visibility = ["//visibility:public"],
 )

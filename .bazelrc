@@ -8,7 +8,7 @@ test --test_output=errors --test_verbose_timeout_warnings
 build --workspace_status_command hack/print-workspace-status.sh
 
 # Preset definitions
-build --define DOCKER_REGISTRY=index.docker.io/nghialv2607
+build --define DOCKER_REGISTRY=index.docker.io/lotusload
 
 # https://github.com/bazelbuild/rules_go/blob/master/go/modes.rst
 build --features=pure

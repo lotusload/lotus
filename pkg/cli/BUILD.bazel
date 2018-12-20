@@ -6,7 +6,7 @@ go_library(
         "app.go",
         "cmd.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/cli",
+    importpath = "github.com/lotusload/lotus/pkg/cli",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/log:go_default_library",

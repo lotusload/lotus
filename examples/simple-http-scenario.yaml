@@ -1,4 +1,4 @@
-apiVersion: lotus.nghialv.com/v1beta1
+apiVersion: lotus.lotusload.com/v1beta1
 kind: Lotus
 metadata:
   name: simple-http-scenario-123456789
@@ -9,7 +9,7 @@ spec:
     metricsPort: 8081
     containers:
       - name: worker
-        image: nghialv2607/lotus-example:v0.1.0
+        image: lotusload/lotus-example:v0.1.0
         args:
           - simple-http-scenario
         ports:

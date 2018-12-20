@@ -18,8 +18,8 @@ helm install --name lotus ./helm
 helm install --name lotus -f ./path/to/your/values.yaml ./helm
 ```
 
-Please check out [`values.yaml`](https://github.com/nghialv/lotus/blob/master/install/helm/values.yaml) for configurable fields.
-Note: Please change [`grafana.adminPassword`](https://github.com/nghialv/lotus/tree/master/install/helm/values.yaml#L27) value. The current password is `admin`.
+Please check out [`values.yaml`](https://github.com/lotusload/lotus/blob/master/install/helm/values.yaml) for configurable fields.
+Note: Please change [`grafana.adminPassword`](https://github.com/lotusload/lotus/tree/master/install/helm/values.yaml#L27) value. The current password is `admin`.
 
 ### Using kubernetes manifests
 
@@ -33,4 +33,4 @@ kubectl apply -f ./manifests
 kubectl apply -f ./manifests-norbac
 ```
 
-Note: Please change [`grafana adminPassword`](https://github.com/nghialv/lotus/tree/master/install/manifests/grafana-secret.yaml#L15) value to a `base64` encoded value. The current password is `admin`.
+Note: Please change [`grafana adminPassword`](https://github.com/lotusload/lotus/tree/master/install/manifests/grafana-secret.yaml#L15) value to a `base64` encoded value. The current password is `admin`.

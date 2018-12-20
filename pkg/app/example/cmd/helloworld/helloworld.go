@@ -14,8 +14,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	helloworldproto "github.com/nghialv/lotus/pkg/app/example/helloworld"
-	"github.com/nghialv/lotus/pkg/cli"
+	helloworldproto "github.com/lotusload/lotus/pkg/app/example/helloworld"
+	"github.com/lotusload/lotus/pkg/cli"
 )
 
 type server struct {

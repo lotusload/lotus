@@ -7,10 +7,10 @@ import (
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 
-	helloworldproto "github.com/nghialv/lotus/pkg/app/example/helloworld"
-	"github.com/nghialv/lotus/pkg/cli"
-	"github.com/nghialv/lotus/pkg/metrics"
-	"github.com/nghialv/lotus/pkg/metrics/grpcmetrics"
+	helloworldproto "github.com/lotusload/lotus/pkg/app/example/helloworld"
+	"github.com/lotusload/lotus/pkg/cli"
+	"github.com/lotusload/lotus/pkg/metrics"
+	"github.com/lotusload/lotus/pkg/metrics/grpcmetrics"
 )
 
 type scenario struct {

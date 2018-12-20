@@ -7,7 +7,7 @@ go_library(
         "prometheus.go",
         "query.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/datasource/prometheus",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/datasource/prometheus",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/config:go_default_library",

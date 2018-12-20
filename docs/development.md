@@ -28,7 +28,7 @@ make dep
 make gazelle
 ```
 
-- Making a change on [`Lotus model`](https://github.com/nghialv/lotus/blob/master/pkg/app/lotus/apis/lotus/v1beta1/types.go)
+- Making a change on [`Lotus model`](https://github.com/lotusload/lotus/blob/master/pkg/app/lotus/apis/lotus/v1beta1/types.go)
 
 We are using [`code-generator`](https://github.com/kubernetes/code-generator) to generate a typed client, informers, listers and deep-copy functions for `Lotus model`.
 Then after making a change on the `Lotus model` you have to run the following command to update the generated codes.
@@ -44,7 +44,7 @@ pkg/lotus/client/
 
 - Making a change on grafana dashboards
 
-We are using `jsonnet` to do dashboard templating. The templates is located at [/install/dashboard-templates](https://github.com/nghialv/lotus/tree/master/install/dashboard-templates)
+We are using `jsonnet` to do dashboard templating. The templates is located at [/install/dashboard-templates](https://github.com/lotusload/lotus/tree/master/install/dashboard-templates)
 
 ``` console
 ### Regenerate grafana dashoards

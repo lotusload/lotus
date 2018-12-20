@@ -1,4 +1,4 @@
-# Lotus [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nghialv/lotus/blob/master/LICENSE)
+# Lotus [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)](http://makeapullrequest.com) [![MIT Licensed](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lotusload/lotus/blob/master/LICENSE)
 
 Lotus is a Kubernetes controller for running load testing. Lotus schedules & monitors the load test workers, collects & stores the metrics and notifies the test result.
 
@@ -13,20 +13,20 @@ Once installed, Lotus provides the following features:
   - Ability to persist time series data to a long-term storage like GCS or S3
   - Ability to notify and store the result summary to multiple receivers: GCS, Slack, Logger...
 
-> _I am thinking about adding a feature that helps us determine the maximum number of  users (requests) the target services can handle. This can be done by automatically running the load tests with the number of virtual users increasing gradually until one of the checks fails. Or a feature that helps us determine the needed resources of the target services so that they can handle the given number of users. [more](https://github.com/nghialv/lotus/issues/1)_
+> _I am thinking about adding a feature that helps us determine the maximum number of  users (requests) the target services can handle. This can be done by automatically running the load tests with the number of virtual users increasing gradually until one of the checks fails. Or a feature that helps us determine the needed resources of the target services so that they can handle the given number of users. [more](https://github.com/lotusload/lotus/issues/1)_
 
 ### Installation
 Firstly, you need to install Lotus controller on your Kubernetes cluster to start using.
 Lotus requires a Kubernetes cluster of version `>=1.9.0`.
 
-The Lotus controller can be installed either by using the helm [`chart`](https://github.com/nghialv/lotus/tree/master/install/helm) or by using Kubernetes [`manifests`](https://github.com/nghialv/lotus/tree/master/install/manifests) directly.
+The Lotus controller can be installed either by using the helm [`chart`](https://github.com/lotusload/lotus/tree/master/install/helm) or by using Kubernetes [`manifests`](https://github.com/lotusload/lotus/tree/master/install/manifests) directly.
 (Using the helm chart is recommended.)
 
 ``` console
 helm install --name lotus ./install/helm
 ```
 
-See [`install`](https://github.com/nghialv/lotus/tree/master/install) for more details.
+See [`install`](https://github.com/lotusload/lotus/tree/master/install) for more details.
 
 ### Running Lotus
 We have 2 steps to start running a load test:
@@ -37,11 +37,11 @@ We have 2 steps to start running a load test:
 
 Theoretically, you can write your scenarios by using any language you like. The only thing you need to have is a metrics exporter for Prometheus.
 
-In the case of Golang, I have already prepared some util packages (e.g. [`metrics`](https://github.com/nghialv/lotus/tree/master/pkg/metrics), [`virtualuser`](https://github.com/nghialv/lotus/tree/master/pkg/virtualuser)) that help you write your scenarios faster and easier.
+In the case of Golang, I have already prepared some util packages (e.g. [`metrics`](https://github.com/lotusload/lotus/tree/master/pkg/metrics), [`virtualuser`](https://github.com/lotusload/lotus/tree/master/pkg/virtualuser)) that help you write your scenarios faster and easier.
 
 - Expose a metrics server in your scenario's `main.go`
 ``` go
-import "github.com/nghialv/lotus/pkg/metrics"
+import "github.com/lotusload/lotus/pkg/metrics"
 
 m, err := metrics.NewServer(8081)
 if err != nil {
@@ -68,7 +68,7 @@ http.Client{
 #### 2. Writing a Lotus CRD configuration
 
 ``` yaml
-apiVersion: lotus.nghialv.com/v1beta1
+apiVersion: lotus.lotusload.com/v1beta1
 kind: Lotus
 metadata:
   name: simple-scenario-12345                                  // The unique testID
@@ -91,9 +91,9 @@ spec:
 
 Then apply this file to your Kubernetes cluster. Lotus will handle this test for you.
 
-See [`crd-configurations.md`](https://github.com/nghialv/lotus/blob/master/docs/lotus-crd-configurations.md) for all configurable fields.
+See [`crd-configurations.md`](https://github.com/lotusload/lotus/blob/master/docs/lotus-crd-configurations.md) for all configurable fields.
 
-See [`examples`](https://github.com/nghialv/lotus/tree/master/examples) for more examples.
+See [`examples`](https://github.com/lotusload/lotus/tree/master/examples) for more examples.
 
 ### Outputs
 
@@ -147,15 +147,15 @@ Your test can be one of these status: `Pending`, `Preparing`, `Running`, `Cleani
 
 ### Examples
 
-Please checkout [`/examples`](https://github.com/nghialv/lotus/tree/master/examples) directory that contains some prepared examples.
+Please checkout [`/examples`](https://github.com/lotusload/lotus/tree/master/examples) directory that contains some prepared examples.
 
 ### FQA
 
-Refer to [FQA.md](https://github.com/nghialv/lotus/blob/master/docs/fqa.md)
+Refer to [FQA.md](https://github.com/lotusload/lotus/blob/master/docs/fqa.md)
 
 ### Development
 
-Refer to [development.md](https://github.com/nghialv/lotus/blob/master/docs/development.md)
+Refer to [development.md](https://github.com/lotusload/lotus/blob/master/docs/development.md)
 
 ### LICENSE
-Lotus is released under the MIT license. See [LICENSE](https://github.com/nghialv/lotus/blob/master/LICENSE) file for the details.
+Lotus is released under the MIT license. See [LICENSE](https://github.com/lotusload/lotus/blob/master/LICENSE) file for the details.

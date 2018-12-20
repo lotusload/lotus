@@ -6,7 +6,7 @@ go_library(
         "clientset.go",
         "doc.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/client/clientset/versioned",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/client/clientset/versioned",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/client/clientset/versioned/typed/lotus/v1beta1:go_default_library",

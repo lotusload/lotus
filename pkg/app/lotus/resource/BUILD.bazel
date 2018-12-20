@@ -12,7 +12,7 @@ go_library(
         "thanos.go",
         "worker.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/resource",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/resource",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/apis/lotus/v1beta1:go_default_library",

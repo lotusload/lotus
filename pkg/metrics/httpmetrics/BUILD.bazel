@@ -6,7 +6,7 @@ go_library(
         "http.go",
         "http_stats.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/metrics/httpmetrics",
+    importpath = "github.com/lotusload/lotus/pkg/metrics/httpmetrics",
     visibility = ["//visibility:public"],
     deps = [
         "@io_opencensus_go//stats:go_default_library",

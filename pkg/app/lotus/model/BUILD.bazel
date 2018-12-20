@@ -9,7 +9,7 @@ go_library(
         "result.go",
         "templates.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/model",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/model",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/apis/lotus/v1beta1:go_default_library",

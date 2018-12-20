@@ -19,7 +19,7 @@ spec:
       serviceAccountName: lotus-controller
       containers:
       - name: lotus-controller
-        image: nghialv2607/lotus:v0.1.0
+        image: lotusload/lotus:v0.1.0
         args:
         - controller
         - --log-level=debug

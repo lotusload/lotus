@@ -6,7 +6,7 @@ go_library(
         "logger.go",
         "metrics.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/metrics",
+    importpath = "github.com/lotusload/lotus/pkg/metrics",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/metrics/grpcmetrics:go_default_library",

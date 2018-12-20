@@ -12,11 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# See https://github.com/nghialv/lotus/tree/master/NOTICE.md
+# See https://github.com/lotusload/lotus/tree/master/NOTICE.md
 
 def version_x_defs():
     stamp_pkgs = [
-        "github.com/nghialv/lotus/pkg/version",
+        "github.com/lotusload/lotus/pkg/version",
     ]
 
     # This should match the list of vars set in hack/print-workspace-status.sh.

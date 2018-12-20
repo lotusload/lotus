@@ -7,9 +7,9 @@ import (
 	"github.com/spf13/cobra"
 	"go.uber.org/zap"
 
-	"github.com/nghialv/lotus/pkg/cli"
-	"github.com/nghialv/lotus/pkg/metrics"
-	"github.com/nghialv/lotus/pkg/virtualuser"
+	"github.com/lotusload/lotus/pkg/cli"
+	"github.com/lotusload/lotus/pkg/metrics"
+	"github.com/lotusload/lotus/pkg/virtualuser"
 )
 
 type scenario struct {

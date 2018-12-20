@@ -3,7 +3,7 @@
 The following is an example of the full configurations.
 
 ``` yaml
-apiVersion: lotus.nghialv.com/v1beta1
+apiVersion: lotus.lotusload.com/v1beta1
 kind: Lotus
 metadata:
   name: scenario-12345
@@ -17,7 +17,7 @@ spec:
     metricsPort: 8081
     containers:
       - name: worker
-        image: nghialv2607/lotus-example:v0.1.0
+        image: lotusload/lotus-example:v0.1.0
         args:
           - three-steps-scenario
           - --step=worker
@@ -36,14 +36,14 @@ spec:
   preparer:
     containers:
       - name: preparer
-        image: nghialv2607/lotus-example:v0.1.0
+        image: lotusload/lotus-example:v0.1.0
         args:
           - three-steps-scenario
           - --step=preparer
   cleaner:
     containers:
       - name: cleaner
-        image: nghialv2607/lotus-example:v0.1.0
+        image: lotusload/lotus-example:v0.1.0
         args:
           - three-steps-scenario
           - --step=cleaner

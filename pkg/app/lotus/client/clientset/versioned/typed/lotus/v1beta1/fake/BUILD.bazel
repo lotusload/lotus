@@ -7,7 +7,7 @@ go_library(
         "fake_lotus.go",
         "fake_lotus_client.go",
     ],
-    importpath = "github.com/nghialv/lotus/pkg/app/lotus/client/clientset/versioned/typed/lotus/v1beta1/fake",
+    importpath = "github.com/lotusload/lotus/pkg/app/lotus/client/clientset/versioned/typed/lotus/v1beta1/fake",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/app/lotus/apis/lotus/v1beta1:go_default_library",

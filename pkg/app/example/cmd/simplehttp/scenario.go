@@ -8,9 +8,9 @@ import (
 	"go.uber.org/zap"
 	"golang.org/x/net/context/ctxhttp"
 
-	"github.com/nghialv/lotus/pkg/cli"
-	"github.com/nghialv/lotus/pkg/metrics"
-	"github.com/nghialv/lotus/pkg/metrics/httpmetrics"
+	"github.com/lotusload/lotus/pkg/cli"
+	"github.com/lotusload/lotus/pkg/metrics"
+	"github.com/lotusload/lotus/pkg/metrics/httpmetrics"
 )
 
 type scenario struct {

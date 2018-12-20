@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_library")
 go_library(
     name = "go_default_library",
     srcs = ["scenario.go"],
-    importpath = "github.com/nghialv/lotus/pkg/app/example/cmd/simplehttp",
+    importpath = "github.com/lotusload/lotus/pkg/app/example/cmd/simplehttp",
     visibility = ["//visibility:public"],
     deps = [
         "//pkg/cli:go_default_library",

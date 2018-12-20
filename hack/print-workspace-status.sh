@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# See https://github.com/nghialv/lotus/tree/master/NOTICE.md
+# See https://github.com/lotusload/lotus/tree/master/NOTICE.md
 
 set -o errexit
 set -o nounset

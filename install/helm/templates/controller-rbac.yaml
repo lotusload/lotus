@@ -38,7 +38,7 @@ rules:
       - create
       - delete
   - apiGroups:
-      - "lotus.nghialv.com"
+      - "lotus.lotusload.com"
     resources:
       - lotuses
     verbs:

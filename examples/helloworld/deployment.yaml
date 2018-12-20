@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: lotusload/lotus-example:v0.1.0
+        image: lotusload/lotus-example:v0.1.1
         args:
           - helloworld
         ports:

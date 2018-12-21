@@ -37,11 +37,14 @@ import (
 
 func WithContext(runner func(context.Context, *zap.Logger) error) func(cmd *cobra.Command, args []string) error {
 	return func(cmd *cobra.Command, args []string) error {
-		return runWithContext(cmd, runner)
+		ch := make(chan os.Signal, 1)
+		signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
+		defer signal.Stop(ch)
+		return runWithContext(cmd, ch, runner)
 	}
 }
 
-func runWithContext(cmd *cobra.Command, runner func(context.Context, *zap.Logger) error) error {
+func runWithContext(cmd *cobra.Command, signalCh <-chan os.Signal, runner func(context.Context, *zap.Logger) error) error {
 	logger, err := newLogger(cmd)
 	if err != nil {
 		return err
@@ -51,14 +54,10 @@ func runWithContext(cmd *cobra.Command, runner func(context.Context, *zap.Logger
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	ch := make(chan os.Signal, 1)
-	signal.Notify(ch, syscall.SIGINT, syscall.SIGTERM)
-	defer signal.Stop(ch)
-
 	go func() {
 		select {
-		case s := <-ch:
-			logger.Info("stopping due to signal", zap.Stringer("signal", s))
+		case s := <-signalCh:
+			logger.Info("stopping due to signal", zap.Any("signal", s))
 			cancel()
 		case <-ctx.Done():
 		}

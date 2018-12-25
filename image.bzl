@@ -18,15 +18,27 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-def all_images():
-    cmds = {
-		"lotus": "lotus",
-		"example": "lotus-example",
-    }
-    images = {}
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@io_bazel_rules_docker//container:container.bzl", "container_bundle")
+load("@io_bazel_rules_docker//contrib:push-all.bzl", "docker_push")
 
-    for cmd, repo in cmds.items():
-        images["$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT_FULL}" % repo] = "//cmd/%s:image" % cmd
-        images["$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT}" % repo ] = "//cmd/%s:image" % cmd
+def app_image(name, binary, repository, **kwargs):
+    go_image(
+        name = "image",
+        binary = binary,
+        **kwargs)
 
-    return images
+    container_bundle(
+        name = "bundle",
+        images = {
+            "$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT}" % repository: ":image",
+            "$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT_FULL}" % repository: ":image",
+        },
+        stamp = True,
+    )
+
+    docker_push(
+        name = "push",
+        bundle = ":bundle",
+        **kwargs)
+

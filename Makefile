@@ -8,7 +8,7 @@ test:
 
 .PHONY: push
 push:
-	bazel run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd:push_all_images
+	./hack/push.sh
 
 .PHONY: dep
 dep:

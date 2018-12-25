@@ -21,10 +21,11 @@ go_binary(
     visibility = ["//visibility:public"],
 )
 
-load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("//:image.bzl", "app_image")
 
-go_image(
-    name = "image",
+app_image(
+    name = "example",
     binary = ":example",
+    repository = "lotus-example",
     visibility = ["//visibility:public"],
 )

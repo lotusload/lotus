@@ -1,6 +1,7 @@
 ---
 # Source: lotus/templates/grafana-datasources-configmap.yaml
 
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: lotus-grafana-datasources

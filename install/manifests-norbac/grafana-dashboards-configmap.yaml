@@ -1,6 +1,7 @@
 ---
 # Source: lotus/templates/grafana-dashboards-configmap.yaml
 
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: lotus-grafana-dashboards

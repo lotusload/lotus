@@ -10,7 +10,7 @@ spec:
     metricsPort: 8081
     containers:
       - name: worker
-        image: lotusload/lotus-example:v0.1.1
+        image: lotusload/lotus-example:v0.1.2
         args:
           - virtual-user-scenario
           - --num-virtual-users=100

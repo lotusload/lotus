@@ -51,6 +51,7 @@ func newWorkerDeployment(lotus *lotusv1beta1.Lotus) *appsv1.Deployment {
 				Spec: corev1.PodSpec{
 					RestartPolicy: corev1.RestartPolicyAlways,
 					Containers:    lotus.Spec.Worker.Containers,
+					Volumes:       lotus.Spec.Worker.Volumes,
 				},
 			},
 		},

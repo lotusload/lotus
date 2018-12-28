@@ -1,4 +1,4 @@
-# Frequently Questioned Answers
+# Frequently Asked Questions
 
 - Can we store the timeseries data of the metrics to a long-term storage?
 

@@ -149,9 +149,9 @@ Your test can be one of these status: `Pending`, `Preparing`, `Running`, `Cleani
 
 Please checkout [`/examples`](https://github.com/lotusload/lotus/tree/master/examples) directory that contains some prepared examples.
 
-### FQA
+### FAQ
 
-Refer to [FQA.md](https://github.com/lotusload/lotus/blob/master/docs/fqa.md)
+Refer to [FQA.md](https://github.com/lotusload/lotus/blob/master/docs/faq.md)
 
 ### Development
 

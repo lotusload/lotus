@@ -151,7 +151,7 @@ Please checkout [`/examples`](https://github.com/lotusload/lotus/tree/master/exa
 
 ### FAQ
 
-Refer to [FQA.md](https://github.com/lotusload/lotus/blob/master/docs/faq.md)
+Refer to [FAQ.md](https://github.com/lotusload/lotus/blob/master/docs/faq.md)
 
 ### Development
 

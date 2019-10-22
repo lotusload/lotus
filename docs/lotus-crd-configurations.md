@@ -17,7 +17,7 @@ spec:
     metricsPort: 8081
     containers:
       - name: worker
-        image: lotusload/lotus-example:v0.1.4
+        image: lotusload/lotus-example:v0.1.5
         args:
           - three-steps-scenario
           - --step=worker
@@ -36,14 +36,14 @@ spec:
   preparer:
     containers:
       - name: preparer
-        image: lotusload/lotus-example:v0.1.4
+        image: lotusload/lotus-example:v0.1.5
         args:
           - three-steps-scenario
           - --step=preparer
   cleaner:
     containers:
       - name: cleaner
-        image: lotusload/lotus-example:v0.1.4
+        image: lotusload/lotus-example:v0.1.5
         args:
           - three-steps-scenario
           - --step=cleaner

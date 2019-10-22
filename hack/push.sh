@@ -30,5 +30,5 @@ CMD_DIR="$ROOT/cmd"
 for d in $(find ${CMD_DIR} ! -path ${CMD_DIR} -type d -maxdepth 1); do
   cmd=${d##*/}
   echo "Pushing ${cmd}..."
-  bazel run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd/${cmd}:push
+  bazelisk run --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64 //cmd/${cmd}:push
 done

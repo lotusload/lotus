@@ -77,7 +77,7 @@ func (in *LotusCheck) DeepCopy() *LotusCheck {
 func (in *LotusList) DeepCopyInto(out *LotusList) {
 	*out = *in
 	out.TypeMeta = in.TypeMeta
-	out.ListMeta = in.ListMeta
+	in.ListMeta.DeepCopyInto(&out.ListMeta)
 	if in.Items != nil {
 		in, out := &in.Items, &out.Items
 		*out = make([]Lotus, len(*in))

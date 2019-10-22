@@ -26,7 +26,7 @@ import (
 	"net/http"
 	"time"
 
-	"go.opencensus.io/exporter/prometheus"
+	"contrib.go.opencensus.io/exporter/prometheus"
 	"go.opencensus.io/stats/view"
 
 	"github.com/lotusload/lotus/pkg/metrics/grpcmetrics"

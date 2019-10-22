@@ -34,7 +34,6 @@ def app_image(name, binary, repository, **kwargs):
             "$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT}" % repository: ":image",
             "$(DOCKER_REGISTRY)/%s:{STABLE_GIT_COMMIT_FULL}" % repository: ":image",
         },
-        stamp = True,
     )
 
     docker_push(

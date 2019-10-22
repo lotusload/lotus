@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	bazelisk build -k -- //cmd/... //pkg/...
+	bazelisk build -- //cmd/... //pkg/...
 
 .PHONY: test
 test:
@@ -12,8 +12,9 @@ push:
 
 .PHONY: dep
 dep:
-	dep ensure
-	bazelisk run //:gazelle -- update-repos -from_file=Gopkg.lock
+	GO111MODULE=on go mod tidy
+	GO111MODULE=on go mod vendor
+	bazelisk run //:gazelle -- update-repos -from_file=go.mod -to_macro=repositories.bzl%go_repositories
 
 .PHONY: gazelle
 gazelle:

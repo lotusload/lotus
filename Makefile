@@ -1,10 +1,10 @@
 .PHONY: build
 build:
-	bazel build -k -- //cmd/... //pkg/...
+	bazelisk build -k -- //cmd/... //pkg/...
 
 .PHONY: test
 test:
-	bazel test -- //cmd/... //pkg/...
+	bazelisk test -- //cmd/... //pkg/...
 
 .PHONY: push
 push:
@@ -13,11 +13,11 @@ push:
 .PHONY: dep
 dep:
 	dep ensure
-	bazel run //:gazelle -- update-repos -from_file=Gopkg.lock
+	bazelisk run //:gazelle -- update-repos -from_file=Gopkg.lock
 
 .PHONY: gazelle
 gazelle:
-	bazel run //:gazelle
+	bazelisk run //:gazelle
 
 .PHONY: codegen
 codegen:

@@ -5,7 +5,7 @@ build --show_timestamps --verbose_failures
 test --test_output=errors --test_verbose_timeout_warnings
 
 # Include git version info
-build --workspace_status_command hack/print-workspace-status.sh
+build --stamp --workspace_status_command hack/print-workspace-status.sh
 
 # Preset definitions
 build --define DOCKER_REGISTRY=index.docker.io/lotusload

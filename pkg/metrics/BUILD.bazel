@@ -12,8 +12,8 @@ go_library(
         "//pkg/metrics/grpcmetrics:go_default_library",
         "//pkg/metrics/httpmetrics:go_default_library",
         "//pkg/virtualuser:go_default_library",
-        "@io_opencensus_go//exporter/prometheus:go_default_library",
         "@io_opencensus_go//stats/view:go_default_library",
+        "@io_opencensus_go_contrib_exporter_prometheus//:go_default_library",
     ],
 )
 

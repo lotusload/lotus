@@ -48,7 +48,7 @@ type prometheus struct {
 }
 
 func (p *prometheus) Query(ctx context.Context, query string, ts time.Time) ([]*datasource.Sample, error) {
-	v, err := p.api.Query(ctx, query, ts)
+	v, _, err := p.api.Query(ctx, query, ts)
 	if err != nil {
 		return nil, err
 	}
@@ -77,7 +77,7 @@ func vectorToSamples(vector prommodel.Vector) []*datasource.Sample {
 
 func (p *prometheus) Check(ctx context.Context, checks []datasource.Check) (*datasource.CheckResult, error) {
 	var ts time.Time
-	v, err := p.api.Query(ctx, "ALERTS", ts)
+	v, _, err := p.api.Query(ctx, "ALERTS", ts)
 	if err != nil {
 		p.logger.Error("failed to run query to get alerts", zap.Error(err))
 		return nil, err

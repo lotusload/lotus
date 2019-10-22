@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-- [bazel](https://github.com/bazelbuild/bazel) (>= `0.17.1`)
+- [bazelisk](https://github.com/bazelbuild/bazelisk)
 - [jsonnet](https://jsonnet.org/) (Only if you want to make a change for the grafana dashboards.)
 
 ### Getting started

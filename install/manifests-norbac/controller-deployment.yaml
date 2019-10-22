@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: lotus-controller
-        image: lotusload/lotus:v0.1.4
+        image: lotusload/lotus:v0.1.5
         args:
         - controller
         - --log-level=debug
